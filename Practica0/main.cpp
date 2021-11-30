@@ -56,33 +56,33 @@ int main()
     }
     case 2:
     {
-        int num=0, rtamodulo=0, suma=0;
+        int num=0, rtamodulo=0, suma=0, aux=0, potencia=1;
         cout << "ingrese un numero: "<< endl;
         cin>> num;
-        /*
-        rtamodulo=num%10;
-        num= num/10;
-        cout<< rtamodulo<< endl;
-        cout<<num << endl;
-        rtamodulo=num%10;
-        num= num/10;
-        cout << rtamodulo << endl;
-        cout<< num << endl;
-        rtamodulo=num%10;
-        num= num/10;
-        cout << rtamodulo << endl;
-        cout<< num << endl;*/
-        while (num !=0 ){
+        while (num > 0 ){
             rtamodulo=num%10;
             num= num/10;
-            cout << rtamodulo << endl;
-            cout<< num << endl;
+            cout << "rtamodulo "<<rtamodulo << endl;
+            cout<< "num "<< num << endl;
             //aqui hacer una función o colocar el código que me eleve cada rtamodulo así mismo para luego ser sumado
+            if (rtamodulo == 0)
+                suma+=0; //¿Debería ser cero o que salga del programa con un break aquí.
+            else {
+                aux=rtamodulo;
+                for (aux; aux > 0; aux --){
+                    potencia*=rtamodulo;
+                    cout<< "potencia del exponente "<< rtamodulo << " = "<< potencia << endl;
+                    
+                }
+                suma+=potencia;
+                cout<< "suma del exponente "<< rtamodulo << " = "<< suma << endl;
+            }
+            potencia=1;
         }
+        cout << "Sume total = "<< suma << endl;
         break;
     }
 
     }
     return 0;
 }
-
