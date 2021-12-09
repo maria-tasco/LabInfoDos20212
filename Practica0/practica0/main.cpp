@@ -72,7 +72,7 @@ int main()
                 for (aux; aux > 0; aux --){
                     potencia*=rtamodulo;
                     cout<< "potencia del exponente "<< rtamodulo << " = "<< potencia << endl;
-                    
+
                 }
                 suma+=potencia;
                 cout<< "suma del exponente "<< rtamodulo << " = "<< suma << endl;
