@@ -3,10 +3,11 @@
 
 using namespace std;
 int cantElementosArray ( char *array);// de esta forma le estoy indicando que estoy esperando un apuntador ("una dirección de memoria")
+void caracterNumtoInt (char *array, int *ptrNum, int n);
 int main()
 {
     int op=1;
-    int num1 = 0, num2 = 0; // Se decide usar variavble globales en este caso para el ahorro de memoria //¿Lo que se define en un case luego se borra como pasa en las funciones.
+    int num1 = 0; // Se decide usar variavble globales en este caso para el ahorro de memoria //¿Lo que se define en un case luego se borra como pasa en las funciones.
     while ( op != 0)
     {
         cout<<endl<<endl<<"Seleccione una opcion"<<endl;
@@ -30,7 +31,7 @@ int main()
                 srand(time(NULL));
                 for (int rango = 0; rango < 200; rango ++ ){
                     num1=65+rand()%(91-65);
-                    cout <<rango <<": "<< (char)num1 << " - ";
+                    cout << (char)num1 << " ";
                     switch ((char)num1) {
                         case 'A': arrayCont [0] +=1; break;
                         case 'B': arrayCont [1] +=1; break;
@@ -96,18 +97,21 @@ int main()
             }
             case 4: {
                 char caracterNum[10]{" "};
-                int numInt[10]{0};
+                int num[10]{0};
+                int *ptrNum = num;
+
                 cout << "Ingrese hasta 10 numeros, sin espacios ni ningun otro caracter: " << endl<< endl;
                 cin >> caracterNum;
-                for (int i=0; i<10; i++) {
-                    cout <<caracterNum[i];
-                }
-                cout<< endl;
 
-                for (int i=0; i<10; i++) {
-                    numInt[i] = caracterNum[i];
-                    cout <<numInt[i]<<" ";
+                num1=0; //saber el tamaño del arreglo y puede imprimir e iterar hasta num1
+                num1 = cantElementosArray(caracterNum);
+
+                caracterNumtoInt(caracterNum,ptrNum,num1);
+
+                for (int i=0; i<num1; i++){
+                    cout << num[i];
                 }
+
                 break;
             }
             case 5: {
@@ -161,4 +165,9 @@ int cantElementosArray ( char *array) {
             n++;
     }
     return n;
+}
+void caracterNumtoInt (char *array, int *ptrNum, int n) {
+    for (int i=0; i<n; i++){
+        ptrNum[i] = (array[i]-'0');
+    }
 }
