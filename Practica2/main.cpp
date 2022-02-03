@@ -197,18 +197,85 @@ int main()
                 break;
             }
             case 12: {
-                int fil =2, colum =2;
-                int matrizcuadrada [fil][colum];
+                int fil =2, colum =2, total=0, aux=0;
                 cout << "Ingrese una matriz cuadrada minimo de 2x2: " << endl;
                 cout << "¿De que tamaño va a ser la matriz, ejemplo si es 3x3 ESCRIBE SOLO 3?" << endl;
                 cin >> fil;
                 colum = fil;
-                matrizcuadrada [fil][colum];
-                for (int i=0; i<fil;i++) {
-                    for (int j=0; j<fil;j++) {
-                        cout<<"Ingresa los numeros que quieres que vayan en tu matriz" << endl;
+                int **matrizcuadrada= new int* [fil];
+                for (int i=0;i<fil;i++){
+                    matrizcuadrada[i]  = new int [colum];
+                }
 
+
+                for (int i=0; i<fil;i++) {
+                    for (int j=0; j<colum;j++) {
+                        cout<<" Ingrese un numero: ["<<i<<"]"<<"["<<j<<"]"<< endl;
+                        cin>>matrizcuadrada[i][j];
                     }
+                }
+
+                for (int i=0; i<fil;i++) {
+                    for (int j=0; j<colum;j++) {
+                        cout << matrizcuadrada[i][j] <<" ";
+                    }
+                    cout <<"\n";
+                }
+
+                for (int i=0; i<fil;i++) {
+                    for (int j=0; j<colum;j++){
+                        //en cada iteración estoy sumando los elementos de una fila
+                        if (i == 0)
+                            total += matrizcuadrada[i][j];
+                        else if (i>0){
+                            aux += matrizcuadrada[i][j];
+                        }
+                    }
+                    if (i>0){
+                        if (total != aux){
+                            cout << "La matriz no es un cuadrado magico"<< endl;
+                            break;
+                        }
+                    }
+                    aux=0;
+                }
+
+                total=0;
+                aux = 0;
+                for (int j=0; j<fil;j++) {
+                    for (int i=0; i<colum;i++){
+                        //en cada iteración estoy sumando los elementos de una columna
+                        if (j == 0)
+                            total += matrizcuadrada[i][j];
+                        else if (j>0){
+                            aux += matrizcuadrada[i][j];
+                        }
+                    }
+                    if (j>0){
+                        if (total != aux){
+                            cout << "La matriz no es un cuadrado magico"<< endl;
+                            break;
+                        }
+                    }
+                    aux=0;
+                }
+
+                aux = 0;
+                for (int i=0; i<fil;i++) {
+                    for (int j=0; j<colum;j++){
+                        //en cada iteración estoy sumando los elementos de la diagonal principal
+                        if (i == j){
+                            aux += matrizcuadrada[i][j];
+                        }
+                    }
+                }
+                if(total != aux ) {
+                    cout << "La matriz no es un cuadrado magico"<< endl;
+                    break;
+                }
+                else {
+                    cout << "La matriz es un cuadrado magico"<< endl;
+                    break;
                 }
                 break;
             }
