@@ -16,7 +16,7 @@ int main()
         cout<<"5.Para convertir un numero entero en un cadena de caracteres"<<endl;
         cout<<"7.Para eliminar los caracteres repetidos de una cadena de caracteres"<<endl;
         cout<<"10.Programa que permite convertir un número en el sistema romano al sistema arábigo usado actualmente."<<endl;
-        cout<<"12.Para la potenciacion"<<endl;
+        cout<<"12.programa que permita al usuario ingresar una matriz cuadrada, imprima la matriz y verifique si la matriz es un cuadrado mágico."<<endl;
         cout<<"15.Para la potenciacion"<<endl;
         cout<<"18.Para la potenciacion"<<endl;
         cout<<"19.Para la potenciacion"<<endl;
@@ -150,7 +150,66 @@ int main()
                 break;
             }
             case 10: {
+                num1 = 0;
+                bool ban = false;
+                int j = 0, total=0;
+                char numRomano[10]{" "};
+                int arrayRoman[7][2] = { {77,1000},
+                                         {68,500},
+                                         {67,100},
+                                         {76,50},
+                                         {88,10},
+                                         {86,5},
+                                         {73,1}};
 
+                cout << "Ingrese un numero romano de maximo 10 caracteres: (Ejem: DCLXVI)" << endl;
+                cin >> numRomano;
+
+                num1 = cantElementosArray(numRomano);
+                for (int i=0; i<num1; i++){
+                    cout << numRomano[i] << endl;
+                }
+
+                for (int i=0; i<num1; i++){
+                    ban = false;
+                    j = 0;
+                    while (ban == false)
+                    {
+                        if((int)numRomano[i] == arrayRoman[j][0])
+                        {
+                            if (i == 0)
+                                total = arrayRoman[j][1];
+                            else {
+                                if((int)numRomano[i+1] <= (int)numRomano[i])
+                                    total += arrayRoman[j][1];
+                                else
+                                    total -= (int)numRomano[i+1] - (int)numRomano[i];
+                                }
+                            ban = true;
+                        }
+                        else {
+                            j++;
+                        }
+                    }
+                }
+                cout << total;
+
+                break;
+            }
+            case 12: {
+                int fil =2, colum =2;
+                int matrizcuadrada [fil][colum];
+                cout << "Ingrese una matriz cuadrada minimo de 2x2: " << endl;
+                cout << "¿De que tamaño va a ser la matriz, ejemplo si es 3x3 ESCRIBE SOLO 3?" << endl;
+                cin >> fil;
+                colum = fil;
+                matrizcuadrada [fil][colum];
+                for (int i=0; i<fil;i++) {
+                    for (int j=0; j<fil;j++) {
+                        cout<<"Ingresa los numeros que quieres que vayan en tu matriz" << endl;
+
+                    }
+                }
                 break;
             }
         }
