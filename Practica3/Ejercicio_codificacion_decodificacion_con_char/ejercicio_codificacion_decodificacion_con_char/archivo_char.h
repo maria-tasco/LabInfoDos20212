@@ -10,6 +10,6 @@ using namespace std;
 void crear (char *nombre);
 void escribir(char *nombre, char *datos, unsigned long long int tam, bool tipo);
 unsigned long long tam(char *nombre);
-bool leer (char *nombre, unsigned long long tam, char *data);
+bool leer (char *nombre, unsigned long long tam,char *data);
 
 #endif // ARCHIVO_CHAR_H

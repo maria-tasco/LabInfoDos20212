@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         archivo_char.cpp \
-        main.cpp
+        main.cpp \
+        metodo_1.cpp
 
 HEADERS += \
-    archivo_char.h
+    archivo_char.h \
+    metodo_1.h
