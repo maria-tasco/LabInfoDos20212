@@ -40,7 +40,7 @@ bool leer(char *nombre, unsigned long long tam, char *data)
                 data[i]=text.get();//con la función get obtenemos los caracteres de el archivo de texto uno a uno y se lo vamos dando a cada posición de la variable char
 
             data[tam]='\0'; //después de leer y pasar lo que leimos al arreglo colocamos en la última posición el caracter de fin de cadena
-            cout << data << endl;
+//            cout << data << endl;
 
         }  catch (bad_alloc) {
             cout << "el archivo ingresado es muy pesado para el sistema" << endl;

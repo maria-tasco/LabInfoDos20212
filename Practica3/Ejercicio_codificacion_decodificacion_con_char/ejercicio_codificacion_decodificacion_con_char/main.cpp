@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     unsigned short int metodo = 0, semilla = 0;
-    char archivo_text[]="mensaje.txt", archivo_bin[]="mensaje.dat",datos[]="hola mundo que hace";
+    char archivo_text[]="mensaje.txt", archivo_bin[]="mensaje.dat",datos[]="AbCd";
 
     cout<< "Ingrese 1 para el primer métod de codificacion o 2 para el segundo: " << endl;
     cin >> metodo;
@@ -15,6 +15,7 @@ int main()
 
     switch (metodo) {
         case 1:{
+            escribir(archivo_text,datos,4,true);
             codificar_M1(archivo_text,archivo_bin,semilla);
 
             break;

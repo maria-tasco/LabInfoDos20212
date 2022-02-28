@@ -8,5 +8,5 @@
 
 bool codificar_M1(char *archivo_to_codificar, char *archivo_codificado, int semilla);
 void text_to_bin(char* texto, char*bin, unsigned long long tamanio);
-
+void metodo_1(char *bin, int semilla,unsigned long long tamanio);
 #endif // METODO_1_H
