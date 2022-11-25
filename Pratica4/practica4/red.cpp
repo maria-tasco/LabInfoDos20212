@@ -7,7 +7,6 @@ red::red()
 
 void red::crear_red(string nombre_arch)
 {
-
     enrutador j;
     int tamanio= tamanio_de_la_red(nombre_arch);
     j.agregar_enrutador(nombre_arch,tamanio);
